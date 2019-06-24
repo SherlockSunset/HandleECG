@@ -24,11 +24,15 @@ y_List_Init = data[0].split()
 # 纵坐标和横坐赋值
 y_List = [float(x) for x in y_List_Init]  # 将txt读取的波形值转换为float类型存入数组
 x_list = [i for i in range(len(y_List))]  # 横坐标的个数依据纵坐标个数而定
-
+x_list_new = []
+y_List_new = []
+for (i, j) in zip(x_list, y_List):
+    x_list_new.append(i/350)
+    y_List_new.append(j/200)
 print(y_List)
 print(x_list)
 print(len(y_List))  # 有多少个Y记录
 print(len(x_list))  # 有多少个X记录
 
-plt.plot(x_list, y_List)
+plt.plot(x_list_new, y_List_new)
 plt.show()
